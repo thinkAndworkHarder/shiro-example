@@ -18,10 +18,13 @@ import java.io.IOException;
 @WebServlet(name = "roleServlet", urlPatterns = "/role")
 public class RoleServlet extends HttpServlet {
 
-    @Override
+	private static final long serialVersionUID = 1L;
+
+	@Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Subject subject = SecurityUtils.getSubject();
         subject.checkRole("admin");
+        req.setAttribute("subject", subject);
         req.getRequestDispatcher("/WEB-INF/jsp/hasRole.jsp").forward(req, resp);
     }
 }

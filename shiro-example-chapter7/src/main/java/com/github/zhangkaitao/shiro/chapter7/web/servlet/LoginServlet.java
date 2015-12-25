@@ -15,14 +15,16 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * <p>User: Zhang Kaitao
+ * <h2>User: Zhang Kaitao
  * <p>Date: 14-1-29
  * <p>Version: 1.0
  */
 @WebServlet(name = "loginServlet", urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
 
-    @Override
+	private static final long serialVersionUID = 1L;
+
+	@Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(req, resp);
     }
@@ -34,7 +36,7 @@ public class LoginServlet extends HttpServlet {
         String password = req.getParameter("password");
         Subject subject = SecurityUtils.getSubject();
         UsernamePasswordToken token = new UsernamePasswordToken(username, password);
-        token.setRememberMe(true);
+//        token.setRememberMe(true);
         try {
             subject.login(token);
         } catch (UnknownAccountException e) {

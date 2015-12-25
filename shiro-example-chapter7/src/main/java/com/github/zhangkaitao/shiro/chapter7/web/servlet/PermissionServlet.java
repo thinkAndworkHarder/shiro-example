@@ -18,7 +18,9 @@ import java.io.IOException;
 @WebServlet(name = "permissionServlet", urlPatterns = "/permission")
 public class PermissionServlet extends HttpServlet {
 
-    @Override
+	private static final long serialVersionUID = 1L;
+
+	@Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Subject subject = SecurityUtils.getSubject();
         subject.checkPermission("user:create");

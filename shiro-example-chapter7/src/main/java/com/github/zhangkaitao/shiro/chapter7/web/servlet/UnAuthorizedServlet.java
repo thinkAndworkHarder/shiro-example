@@ -1,8 +1,5 @@
 package com.github.zhangkaitao.shiro.chapter7.web.servlet;
 
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.subject.Subject;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +15,9 @@ import java.io.IOException;
 @WebServlet(name = "unauthorizedServlet", urlPatterns = "/unauthorized")
 public class UnAuthorizedServlet extends HttpServlet {
 
-    @Override
+	private static final long serialVersionUID = 1L;
+
+	@Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("/WEB-INF/jsp/unauthorized.jsp").forward(req, resp);
     }
